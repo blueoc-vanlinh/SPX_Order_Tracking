@@ -1,0 +1,371 @@
+[
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:06+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "ALL",
+    "total": 443852,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:09+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Hung Yen 2 Hub",
+    "total": 403,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:11+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Hung Yen Hub",
+    "total": 625,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:12+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Kim Dong 2 Hub",
+    "total": 189,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:13+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Kim Dong Hub",
+    "total": 525,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:14+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Khoai Chau 2 Hub",
+    "total": 564,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:16+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Khoai Chau 3 Hub",
+    "total": 652,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:17+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Khoai Chau Hub",
+    "total": 319,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:18+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN My Hao 2 Hub",
+    "total": 391,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:20+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN My Hao 3 Hub",
+    "total": 919,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:21+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN My Hao Hub",
+    "total": 623,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:22+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Tan Phuc Hub",
+    "total": 311,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:23+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Phu Cu Hub",
+    "total": 346,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:24+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Tien Lu Hub",
+    "total": 357,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:26+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Van Giang 2 Hub",
+    "total": 1375,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:27+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Van Giang 3 Hub",
+    "total": 452,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:28+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN An Thi Hub",
+    "total": 1156,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:29+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Van Giang Hub",
+    "total": 756,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:31+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Van Lam 2 Hub",
+    "total": 265,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:32+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Van Lam 3 Hub",
+    "total": 432,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:33+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Van Lam 4 Hub",
+    "total": 959,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:35+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Van Lam Hub",
+    "total": 389,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:36+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Yen My 2 Hub",
+    "total": 1234,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:37+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Yen My 3 Hub",
+    "total": 354,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:38+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "25-HYN Yen My Hub",
+    "total": 778,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:40+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "BMT SOC",
+    "total": 40935,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:41+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "BN A Mega SOC",
+    "total": 695,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:42+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "BN B Mega SOC",
+    "total": 1077,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:44+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Cam Xuyen SOC",
+    "total": 8809,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:45+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Dien Khanh SOC",
+    "total": 26396,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:46+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Dong Hoi SOC",
+    "total": 7497,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:48+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Duc Trong SOC",
+    "total": 29711,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:49+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Gia Nghia SOC",
+    "total": 9349,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:50+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "HN SOC",
+    "total": 519,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:51+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Kon Tum SOC",
+    "total": 6320,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:53+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Phan Rang SOC",
+    "total": 9793,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:54+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Pleiku SOC",
+    "total": 17127,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:55+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Quang Ngai SOC",
+    "total": 10652,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:57+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Tuy Hoa SOC",
+    "total": 9883,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:58+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Tuy Phuoc SOC",
+    "total": 19107,
+    "filter": "all"
+  },
+  {
+    "snapshot_at": "2026-11-15T15:27:00+07:00",
+    "observed_at": "2026-11-15T15:27:59+07:00",
+    "current_station": "Hung Yen SOC",
+    "current_station_id": 3909,
+    "next_station": "Vinh SOC",
+    "total": 10775,
+    "filter": "all"
+  }
+]

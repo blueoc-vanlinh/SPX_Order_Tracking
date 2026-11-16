@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "spreadsheet_id": "16Gxw2SrgOUULTKRrFJcoQg3Kxzq1z3Iar8Fb7wGDpiM",
+  "worksheet": "",
+  "worksheet_gid": 0,
+  "credentials_file": ".auth/service_account.json",
+  "fallback_credentials_file": ".auth/token.json",
+  "write_mode": "station_totals",
+  "station_column": "station",
+  "total_column": "order total"
+}

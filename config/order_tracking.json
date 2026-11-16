@@ -1,0 +1,210 @@
+{
+  "path": "/api/fleet_order/order/tracking_list/search",
+  "method": "POST",
+  "request_confirmed": true,
+  "params": {},
+  "body": {
+    "current_station_ids": "3909",
+    "next_station_ids": "",
+    "order_status": "",
+    "page_no": 1,
+    "count": 24
+  },
+  "rows_path": "data.list",
+  "total_path": "data.total",
+  "success": {
+    "path": "retcode",
+    "equals": 0
+  },
+  "pagination": {
+    "mode": "none"
+  },
+  "delay_seconds": 0.5,
+  "current_station": {
+    "name": "Hung Yen SOC",
+    "id": 3909
+  },
+  "current_filter": {
+    "location": "body",
+    "path": [
+      "current_station_ids"
+    ],
+    "value": "3909"
+  },
+  "next_filter": {
+    "location": "body",
+    "path": [
+      "next_station_ids"
+    ],
+    "all_value": ""
+  },
+  "profiles": {
+    "all": {
+      "label": "all",
+      "filters": {}
+    }
+  },
+  "active_profile": "all",
+  "next_stations": [
+    {
+      "name": "25-HYN Hung Yen 2 Hub",
+      "value": "2517"
+    },
+    {
+      "name": "25-HYN Hung Yen Hub",
+      "value": "97"
+    },
+    {
+      "name": "25-HYN Kim Dong 2 Hub",
+      "value": "5980"
+    },
+    {
+      "name": "25-HYN Kim Dong Hub",
+      "value": "612"
+    },
+    {
+      "name": "25-HYN Khoai Chau 2 Hub",
+      "value": "2098"
+    },
+    {
+      "name": "25-HYN Khoai Chau 3 Hub",
+      "value": "4997"
+    },
+    {
+      "name": "25-HYN Khoai Chau Hub",
+      "value": "952"
+    },
+    {
+      "name": "25-HYN My Hao 2 Hub",
+      "value": "2400"
+    },
+    {
+      "name": "25-HYN My Hao 3 Hub",
+      "value": "5664"
+    },
+    {
+      "name": "25-HYN My Hao Hub",
+      "value": "992"
+    },
+    {
+      "name": "25-HYN Tan Phuc Hub",
+      "value": "5098"
+    },
+    {
+      "name": "25-HYN Phu Cu Hub",
+      "value": "1536"
+    },
+    {
+      "name": "25-HYN Tien Lu Hub",
+      "value": "990"
+    },
+    {
+      "name": "25-HYN Van Giang 2 Hub",
+      "value": "2146"
+    },
+    {
+      "name": "25-HYN Van Giang 3 Hub",
+      "value": "3951"
+    },
+    {
+      "name": "25-HYN An Thi Hub",
+      "value": "982"
+    },
+    {
+      "name": "25-HYN Van Giang Hub",
+      "value": "985"
+    },
+    {
+      "name": "25-HYN Van Lam 2 Hub",
+      "value": "1786"
+    },
+    {
+      "name": "25-HYN Van Lam 3 Hub",
+      "value": "4253"
+    },
+    {
+      "name": "25-HYN Van Lam 4 Hub",
+      "value": "5266"
+    },
+    {
+      "name": "25-HYN Van Lam Hub",
+      "value": "1009"
+    },
+    {
+      "name": "25-HYN Yen My 2 Hub",
+      "value": "1538"
+    },
+    {
+      "name": "25-HYN Yen My 3 Hub",
+      "value": "4018"
+    },
+    {
+      "name": "25-HYN Yen My Hub",
+      "value": "1152"
+    },
+    {
+      "name": "BMT SOC",
+      "value": "725"
+    },
+    {
+      "name": "BN A Mega SOC",
+      "value": "1701"
+    },
+    {
+      "name": "BN B Mega SOC",
+      "value": "1959"
+    },
+    {
+      "name": "Cam Xuyen SOC",
+      "value": "834"
+    },
+    {
+      "name": "Dien Khanh SOC",
+      "value": "288"
+    },
+    {
+      "name": "Dong Hoi SOC",
+      "value": "672"
+    },
+    {
+      "name": "Duc Trong SOC",
+      "value": "1041"
+    },
+    {
+      "name": "Gia Nghia SOC",
+      "value": "1467"
+    },
+    {
+      "name": "HN SOC",
+      "value": "6"
+    },
+    {
+      "name": "Kon Tum SOC",
+      "value": "1769"
+    },
+    {
+      "name": "Phan Rang SOC",
+      "value": "1579"
+    },
+    {
+      "name": "Pleiku SOC",
+      "value": "1030"
+    },
+    {
+      "name": "Quang Ngai SOC",
+      "value": "1333"
+    },
+    {
+      "name": "Tuy Hoa SOC",
+      "value": "1791"
+    },
+    {
+      "name": "Tuy Phuoc SOC",
+      "value": "324"
+    },
+    {
+      "name": "Vinh SOC",
+      "value": "549"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "kind": "order_tracking",
+  "complete": true,
+  "rows": 41,
+  "expected_rows": 41,
+  "snapshot_at": "2026-11-16T10:20:23.225409+07:00",
+  "note": "Sequential live totals; ALL includes destinations outside the selected list."
+}
