@@ -9,7 +9,8 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 PROGRAM_ROOT = Path(sys.executable).resolve().parent if getattr(sys, "frozen", False) else Path(__file__).resolve().parents[1]
-ROOT = Path(os.environ["SPX_ORDER_TRACKING_DATA_DIR"]).resolve() if os.environ.get("SPX_ORDER_TRACKING_DATA_DIR") else PROGRAM_ROOT
+ROOT = (Path(os.environ["SPX_ORDER_TRACKING_DATA_DIR"]).resolve() if os.environ.get("SPX_ORDER_TRACKING_DATA_DIR") else
+        Path(os.environ.get('LOCALAPPDATA', str(PROGRAM_ROOT))) / 'SPX_Order_Tracking' if getattr(sys, 'frozen', False) else PROGRAM_ROOT)
 BASE = "https://spx.shopee.vn"
 TRACKING_URL = BASE + "/#/orderTracking"
 AUTH = ROOT / ".auth"

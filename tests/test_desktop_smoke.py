@@ -20,6 +20,7 @@ class DesktopSmokeTests(unittest.TestCase):
             self.assertEqual(ROOT, Path(__file__).resolve().parents[1])
             self.assertTrue(callable(app.sheet_settings))
             self.assertTrue(callable(app.tracking_filters))
+            self.assertTrue(callable(app.quick_setup))
             self.assertEqual(window.winfo_width(), 68)
             self.assertTrue(window.overrideredirect())
             self.assertTrue(window.attributes("-topmost"))

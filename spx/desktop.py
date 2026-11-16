@@ -28,6 +28,7 @@ class Desktop:
         self.finished = threading.Event()
         self.busy = False
         self.latest = None
+        self.setup = None
         self.tooltip = None
         self.drag_origin = None
         self.details = None
@@ -159,7 +160,7 @@ class Desktop:
         ttk.Label(panel, textvariable=self.hint, wraplength=720, padding=(12, 0)).pack(fill="x")
         buttons = ttk.Frame(panel, padding=12)
         buttons.pack(fill="x")
-        for label, action in [("Google Sheets…", self.sheet_settings), ("Tạo mẫu Sheet", lambda: self.start("template")), ("Bộ lọc…", self.tracking_filters),
+        for label, action in [("Thiết lập nhanh…", self.quick_setup), ("Google Sheets…", self.sheet_settings), ("Bộ lọc…", self.tracking_filters),
                               ("Gửi kết quả gần nhất", lambda: self.start("publish"))]:
             button = ttk.Button(buttons, text=label, command=action)
             button.pack(side="left", padx=(0, 8))
@@ -202,12 +203,19 @@ class Desktop:
 
     def start(self, mode):
         if self.busy: return
+        if mode in {'crawl', 'publish', 'template'}:
+            from .google_auth import readiness
+            ready = readiness()
+            if not (ready['sheet'] and ready['google']) or (mode == 'crawl' and not ready['spx']):
+                self.quick_setup()
+                self.hint.set('Hoàn tất thiết lập nhanh rồi bấm ▶ để chạy.')
+                return
         self.busy = True
         self.hide_tip()
         self.indicator.configure(fg="#ffb078")
         self.finished.clear()
         for button in self.actions: button.configure(state="disabled")
-        self.hint.set("Đang mở Chrome…" if mode == "login" else "Đang lấy total…")
+        self.hint.set("Đang mở Chrome…" if mode == "login" else "Chọn tài khoản và cấp quyền trong trình duyệt…" if mode == 'google_login' else "Đang xử lý…")
         def work():
             try:
                 with contextlib.redirect_stdout(LogStream(self.events)), contextlib.redirect_stderr(LogStream(self.events)):
@@ -216,6 +224,13 @@ class Desktop:
                             self.events.put(("confirm", None))
                             self.finished.wait()
                         login(confirm=confirm)
+                    elif mode == 'google_login':
+                        from .google_auth import connect
+                        connect(stop_event=self.finished)
+                        self.events.put(('log', 'Da ket noi tai khoan Google.\n'))
+                        from .sheets import ensure_tracking_template
+                        ensure_tracking_template()
+                        self.events.put(('log', 'Da kiem tra quyen ghi va chuan bi Sheet.\n'))
                     elif mode == "template":
                         from .sheets import ensure_tracking_template
                         count = ensure_tracking_template()
@@ -262,9 +277,83 @@ class Desktop:
                     for button in self.actions: button.configure(state="normal")
                     self.hint.set(value)
                     self.indicator.configure(fg="#f18a8a" if kind == "error" else "#72e0af")
+                    self.refresh_setup()
                     if kind == "error": messagebox.showerror("Order Tracking", value, parent=self.window)
         except queue.Empty: pass
         self.window.after(100, self.poll)
+
+    def refresh_setup(self):
+        if self.setup is not None and self.setup.winfo_exists():
+            from .google_auth import readiness
+            ready = readiness()
+            self.setup_status.set('Google: ' + ('đã có thông tin kết nối' if ready['google'] else 'chưa kết nối') +
+                                  '\nSPX: ' + ('đã có phiên; sẽ kiểm tra khi chạy' if ready['spx'] else 'chưa đăng nhập'))
+
+    def quick_setup(self):
+        from . import sheets
+        from .google_auth import import_google_file
+        if self.setup is not None and self.setup.winfo_exists():
+            self.setup.deiconify()
+            self.setup.lift()
+            self.refresh_setup()
+            return
+        cfg = sheets.load_config('order_tracking_sheets.json', tracking.SHEET_DEFAULTS)
+        dialog = self.setup = tk.Toplevel(self.window)
+        dialog.title('Thiết lập nhanh · SPX Order Tracking')
+        dialog.geometry('620x520')
+        dialog.resizable(False, False)
+        dialog.attributes('-topmost', True)
+        body = ttk.Frame(dialog, padding=18)
+        body.pack(fill='both', expand=True)
+        ttk.Label(body, text='Thiết lập một lần trên máy này', font=('Segoe UI', 14, 'bold')).pack(anchor='w')
+        ttk.Label(body, text='Đăng nhập tài khoản của bạn; không cần copy token từ máy khác.', wraplength=580).pack(anchor='w', pady=(5, 14))
+        ttk.Label(body, text='1. Link Google Sheet').pack(anchor='w')
+        link = tk.StringVar(value=cfg.get('spreadsheet_id', ''))
+        ttk.Entry(body, textvariable=link).pack(fill='x', pady=5)
+        ttk.Label(body, text='Tên tab (để trống dùng tab gid=0)').pack(anchor='w')
+        tab = tk.StringVar(value=cfg.get('worksheet', ''))
+        ttk.Entry(body, textvariable=tab).pack(fill='x', pady=5)
+        def save():
+            try:
+                value = sheets.load_config('order_tracking_sheets.json', tracking.SHEET_DEFAULTS)
+                value.update(spreadsheet_id=sheets.spreadsheet_id(link.get()), worksheet=tab.get().strip(), enabled=True)
+                write_json(ROOT / 'config/order_tracking_sheets.json', value)
+                self.refresh_setup()
+                return True
+            except CrawlError as exc:
+                messagebox.showerror('Link Sheet chưa đúng', str(exc), parent=dialog)
+                return False
+        def google():
+            if save(): self.start('google_login')
+        def verify():
+            if save(): self.start('template')
+        def import_file():
+            if not save(): return
+            filename = filedialog.askopenfilename(parent=dialog, title='Chọn JSON Google (tùy chọn nâng cao)', filetypes=[('JSON', '*.json')])
+            if not filename: return
+            try:
+                target = import_google_file(filename)
+                self.refresh_setup()
+                self.start('google_login' if target.endswith('google_oauth_client.json') else 'template')
+            except CrawlError as exc:
+                messagebox.showerror('Không nhập được', str(exc), parent=dialog)
+        row = ttk.Frame(body)
+        row.pack(fill='x', pady=(12, 5))
+        for label, command in [('2. Kết nối Google', google), ('3. Đăng nhập SPX', lambda: self.start('login')),
+                               ('Kiểm tra Sheet', verify)]:
+            button = ttk.Button(row, text=label, command=command)
+            button.pack(side='left', padx=(0, 8))
+            self.actions.append(button)
+        self.setup_status = tk.StringVar()
+        ttk.Label(body, textvariable=self.setup_status, wraplength=570).pack(anchor='w', pady=8)
+        ttk.Button(body, text='Nhập JSON Google có sẵn (nâng cao)', command=import_file).pack(anchor='w')
+        ttk.Label(body, text='Header và dòng trạm được tạo tự động khi ghi. Mỗi tài khoản cần quyền sửa Sheet.', wraplength=580).pack(anchor='w', pady=8)
+        footer = ttk.Frame(body)
+        footer.pack(fill='x', side='bottom')
+        ttk.Button(footer, text='Lưu thiết lập', command=save).pack(side='left')
+        ttk.Button(footer, text='Đóng', command=dialog.withdraw).pack(side='right')
+        dialog.protocol('WM_DELETE_WINDOW', dialog.withdraw)
+        self.refresh_setup()
 
     def tracking_filters(self):
         from tkinter import ttk
@@ -362,15 +451,28 @@ def main(smoke_output=None):
     if smoke_output:
         app = Desktop(window)
         window.update_idletasks()
+        from .google_auth import readiness, client_config
+        ready = readiness()
+        has_client = True
+        try: client_config()
+        except CrawlError: has_client = False
+        if not all(ready.values()):
+            app.quick_setup()
+            app.setup.withdraw()
         write_json(Path(smoke_output), {"title": window.title(), "rows": len(app.table.get_children()),
                                       "root": str(ROOT), "frozen": bool(getattr(__import__("sys"), "frozen", False)),
                                       "toolbar_width": window.winfo_width(), "topmost": bool(window.attributes("-topmost")),
-                                      "borderless": bool(window.overrideredirect()), "details_state": app.details.state()})
+                                      "borderless": bool(window.overrideredirect()), "details_state": app.details.state(),
+                                      "setup_required": not all(ready.values()), "google_client_included": has_client,
+                                      "setup_window_available": app.setup is not None})
         window.destroy()
         return
     from .processes import own_process_tree, exit_process_tree
     job = own_process_tree()
-    Desktop(window, exit_app=lambda: exit_process_tree(job))
+    app = Desktop(window, exit_app=lambda: exit_process_tree(job))
     window.deiconify()
+    from .google_auth import readiness
+    if not all(readiness().values()):
+        window.after(400, app.quick_setup)
     window.mainloop()
     exit_process_tree(job)

@@ -11,3 +11,16 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+build/
+release/
+outputs/
+config/
+assets/google_oauth_client.json
+*.exe
+*.zip
+token*.json
+*token*.json
+credentials*.json
+storage_state.json
+spx_auth_cache.json
+.portable_import_done

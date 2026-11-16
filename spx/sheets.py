@@ -38,7 +38,19 @@ def authorized_session(cfg):
         else:
             from google.oauth2.credentials import Credentials
             credentials = Credentials.from_authorized_user_info(info)
-        return AuthorizedSession(credentials, refresh_timeout=30)
+        if info.get('type') == 'service_account':
+            return AuthorizedSession(credentials, refresh_timeout=30)
+        class StoredSession(AuthorizedSession):
+            def request(self, *args, **kwargs):
+                old_token = self.credentials.token
+                try:
+                    return super().request(*args, **kwargs)
+                finally:
+                    if self.credentials.token and self.credentials.token != old_token:
+                        saved = json.loads(self.credentials.to_json())
+                        saved['type'] = 'authorized_user'
+                        write_json(path, saved)
+        return StoredSession(credentials, refresh_timeout=30)
     except Exception:
         raise CrawlError("Google Sheets: khong doc duoc JSON Service Account/OAuth da chon.") from None
 
